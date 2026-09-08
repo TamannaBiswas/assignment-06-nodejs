@@ -1,10 +1,10 @@
-// 1. Create HTTP Server
 const http = require("http");
-
 const server = http.createServer((req, res) => {
-  res.writeHead(200, { "content-type": "text/html" });
-  // home page
-  if (req.url == "/") {
+  if (req.url === "/") {
+    res.writeHead(200, {
+      "Content-Type": "text/html",
+    });
+
     res.end(`
       <h1>Home Page</h1>
       <p>Welcome to my Home Page.</p>
@@ -14,10 +14,11 @@ const server = http.createServer((req, res) => {
       <a href="/about">About</a> |
       <a href="/contact">Contact</a>
     `);
-  }
-  //blog page
-  else if (req.url == "/blog") {
-    res.writeHead(200, { "content-type": "text/html" });
+  } else if (req.url === "/blog") {
+    res.writeHead(200, {
+      "Content-Type": "text/html",
+    });
+
     res.end(`
       <h1>Blog Page</h1>
       <p>Welcome to my Blog Page.</p>
@@ -28,9 +29,13 @@ const server = http.createServer((req, res) => {
       <a href="/contact">Contact</a>
     `);
   } else if (req.url === "/about") {
+    res.writeHead(200, {
+      "Content-Type": "text/html",
+    });
+
     res.end(`
       <h1>About Page</h1>
-      <p>This is the About Page of my website.</p>
+      <p>This is the About Page.</p>
 
       <a href="/">Home</a> |
       <a href="/blog">Blog</a> |
@@ -38,9 +43,13 @@ const server = http.createServer((req, res) => {
       <a href="/contact">Contact</a>
     `);
   } else if (req.url === "/contact") {
+    res.writeHead(200, {
+      "Content-Type": "text/html",
+    });
+
     res.end(`
       <h1>Contact Page</h1>
-      <p>You can contact us through this page.</p>
+      <p>This is the Contact Page.</p>
 
       <a href="/">Home</a> |
       <a href="/blog">Blog</a> |
@@ -51,6 +60,7 @@ const server = http.createServer((req, res) => {
     res.writeHead(404, {
       "Content-Type": "text/html",
     });
+
     res.end(`
       <h1>404 - Page Not Found</h1>
       <p>The page you are looking for does not exist.</p>
