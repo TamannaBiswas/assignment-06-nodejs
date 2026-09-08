@@ -2,8 +2,7 @@
 const http = require("http");
 
 const server = http.createServer((req, res) => {
-  res.write("This is heading");
-  res.end();
+  res.writeHead(200, { "content-type": "text/html" });
 });
 
 server.listen(5000, () => {
